@@ -5,7 +5,8 @@ package com.logigear.selenium.web.gondolatest.pages;
  */
 public interface HomePage {
     String APP_URL = "https://demo.gondolatest.com/";
-    String APP_TITLE = "Logigear Demo Shop";
+    String APP_TITLE = "LogiGear Demo Shop";
+
     /**
      * Select accessory's category (Men, Women, Sale).
      */
@@ -20,6 +21,11 @@ public interface HomePage {
      * Add item to cart.
      */
     public HomePage addToCart(String item);
+
+    /**
+     * Get number of item in cart.
+     */
+    public int getCartNumber();
 
     /**
      * Checkout cart.

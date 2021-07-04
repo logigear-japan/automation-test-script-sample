@@ -14,6 +14,7 @@ public abstract class AbstractTest {
     @Parameters("browser")
     public void startBrowser(@Optional("chrome") String browser) {
         driver = WebDriverWrapper.startDriver(browser);
+        driver.manage().window().maximize();
         testSetup();
     }
 

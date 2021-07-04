@@ -19,8 +19,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
                 <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>4</threadCount>
                     <suiteXmlFiles>
-                        <suiteXmlFile>bin/testng-facebook.xml</suiteXmlFile>
+                        <suiteXmlFile>config/testng-gondolatest.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

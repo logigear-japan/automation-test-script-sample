@@ -1,9 +1,23 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Facebook UI Selenium WebDriver Tests" verbose="10">
+<suite name="LogiGear Demo Shop E2E UI Selenium WebDriver Tests" verbose="10">
 
-    <!--Browser to run tests: htmlunit / firefox / ie / chrome -->
+    <!--Browser to run tests: firefox / chrome (default)-->
     <parameter name="browser" value="chrome"/>
+    <!-- E2E Testsuite parameter-->
+    <parameter name="price_range_percent" value="70"/>  <!-- Must be between 0 and 100 -->
+    <parameter name="item1" value="Knit Sweater with Zips"/>
+    <parameter name="item2" value="Camo Fang Backpack Jungle"/>
+    <parameter name="email" value="demo@gmail.com"/>
+    <parameter name="card_number" value="4242424242424242"/>
+    <parameter name="exp_date" value="0622"/>
+    <parameter name="cvc" value="123"/>
+    <parameter name="zip_code" value="11111"/>
 
+    <test name="E2E Demo workflow" verbose="10">
+        <classes>
+            <class name="com.logigear.selenium.web.gondolatest.test_scripts.E2EDemoTest"/>
+        </classes>
+    </test>
 
 </suite>
