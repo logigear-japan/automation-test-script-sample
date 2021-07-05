@@ -53,9 +53,9 @@ public class CartPage extends LoadableComponent<HomePage> {
      */
     public CartPage payAndCheckout() {
         // Check button enable or not
-        WebElement button = driver.findElement(checkout);
         WebDriverWait wait = new WebDriverWait(driver, 5000l);
-        wait.until(ExpectedConditions.elementToBeClickable(button));
+        wait.until(ExpectedConditions.elementToBeClickable(checkout));
+        WebElement button = driver.findElement(checkout);
         button.click();
         return this;
     }

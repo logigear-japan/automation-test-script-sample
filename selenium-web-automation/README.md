@@ -17,7 +17,7 @@ A simple Selenium test scripts to test an ecommerce website at https://demo.gond
    $ git clone https://github.com/logigear-japan/automation-test-script-sample.git
    ```
 ### 2. Set browser 
-Edit value **\<parameter name="browser" value="firefox"/>** in selenium-web-automation\source\suite\testng-gondolatest.xml
+Edit value **\<parameter name="browser" value="firefox"/>** in selenium-web-automation/source/suite/testng-gondolatest.xml
 ### 3. Run test script
 ### 3.1 Command line
    Go to the maven directory
@@ -30,5 +30,7 @@ Edit value **\<parameter name="browser" value="firefox"/>** in selenium-web-auto
    ```
 ### 3.2 IntelliJ
    ![alt text](./intellJ.png)
+### 3.3 View results
+   Test results was generated at /selenium-web-automation/source/target/surefire-reports/index.html
 
 All steps are recorded in this video

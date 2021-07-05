@@ -18,22 +18,16 @@ public class HomePage extends LoadableComponent<HomePage> {
     String APP_URL = "https://demo.gondolatest.com/";
     String APP_TITLE = "LogiGear Demo Shop";
 
-    // Page Elements.
-    @FindBy(css = "a:nth-child(1) > li")
-    private WebElement womanCategory;
-    @FindBy(id = "pricerange")
-    private WebElement priceRange;
-    @FindBy(className = "cartitem")
-    private WebElement checkoutCart;
-    @FindBy(className = "cartcount")
-    private WebElement cartCount;
+    By womanCategory = By.cssSelector("a:nth-child(1) > li");
+    By priceRange = By.id("pricerange");
+    By checkoutCart = By.className("cartitem");
+    By cartCount = By.className("cartcount");
 
     // WebDriver instance.
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
     @Override
@@ -51,7 +45,7 @@ public class HomePage extends LoadableComponent<HomePage> {
      * Select accessory's category.
      */
     public HomePage selectCategory() {
-        womanCategory.click();
+        driver.findElement(womanCategory).click();
         return this;
     }
 
@@ -62,13 +56,14 @@ public class HomePage extends LoadableComponent<HomePage> {
         // wait until slider clickable
         WebDriverWait wait = new WebDriverWait(driver, 5000l);
         wait.until(ExpectedConditions.elementToBeClickable(priceRange));
+        WebElement priceSlider = driver.findElement(priceRange);
 
-        Dimension sliderSize = priceRange.getSize();
+        Dimension sliderSize = priceSlider.getSize();
         int sliderWidth = sliderSize.getWidth();
         Actions builder = new Actions(driver);
-        builder.moveToElement(priceRange)
+        builder.moveToElement(priceSlider)
                 .click()
-                .dragAndDropBy(priceRange,(value-50)*sliderWidth/100, 0)
+                .dragAndDropBy(priceSlider,(value-50)*sliderWidth/100, 0)
                 .build()
                 .perform();
 
@@ -80,9 +75,10 @@ public class HomePage extends LoadableComponent<HomePage> {
      */
     public HomePage addToCart(String item) {
         Preconditions.checkNotNull(item, "Item parameter is null");
-        WebElement button = driver.findElement (By.xpath(String.format("//*[text() = '%s']/following-sibling::button", item)));
-        Preconditions.checkNotNull(button, "Can not add item to card");
-        ExpectedConditions.elementToBeClickable(button);
+        By xpath = By.xpath(String.format("//*[text() = '%s']/following-sibling::button", item));
+        WebDriverWait wait = new WebDriverWait(driver, 5000l);
+        wait.until(ExpectedConditions.elementToBeClickable(xpath));
+        WebElement button = driver.findElement(xpath);
         button.click();
         return this;
     }
@@ -91,16 +87,20 @@ public class HomePage extends LoadableComponent<HomePage> {
      * Get number of item in cart.
      */
     public int getCartNumber() {
-        Preconditions.checkNotNull(cartCount, "Can not find cart number. No item in cart");
-        return Integer.valueOf(cartCount.getText());
+        WebDriverWait wait = new WebDriverWait(driver, 5000l);
+        wait.until(ExpectedConditions.elementToBeClickable(cartCount));
+        WebElement cartNumber = driver.findElement(cartCount);
+        return Integer.valueOf(cartNumber.getText());
     }
 
     /**
      * Checkout cart.
      */
     public CartPage checkout() {
-        ExpectedConditions.elementToBeClickable(checkoutCart);
-        checkoutCart.click();
+        WebDriverWait wait = new WebDriverWait(driver, 5000l);
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutCart));
+        WebElement cart = driver.findElement(checkoutCart);
+        cart.click();
         return new CartPage(driver);
     }
 }
