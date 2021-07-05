@@ -22,7 +22,7 @@
                     <parallel>methods</parallel>
                     <threadCount>4</threadCount>
                     <suiteXmlFiles>
-                        <suiteXmlFile>config/testng-gondolatest.xml</suiteXmlFile>
+                        <suiteXmlFile>suite/testng-gondolatest.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -41,6 +41,12 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.4.3</version>
         </dependency>
     </dependencies>
 </project>

@@ -17,7 +17,7 @@ public class E2EDemoTest extends AbstractTest {
 
     @Test(description = "User can checkout the shopping cart with valid information")
     @Parameters({"price_range_percent", "item1", "item2", "email", "card_number", "exp_date", "cvc", "zip_code"})
-    public void buyAndCheckoutCart(int range, String item1, String item2, String email, String card, String expDate, String cvc, String postal) throws InterruptedException {
+    public void buyAndCheckoutCart(int range, String item1, String item2, String email, String card, String expDate, String cvc, String postal) {
         // Navigate to home page
         HomePage homePage = new HomePageImpl(driver).get();
 
@@ -27,9 +27,6 @@ public class E2EDemoTest extends AbstractTest {
         // Set price range
         assertTrue(0 <= range && range <= 100);
         homePage.selectPrice(range);
-
-        // Keep a bit for user see UI change
-        Thread.sleep(2000);
 
         // Select item 1,2
         homePage.addToCart(item1);

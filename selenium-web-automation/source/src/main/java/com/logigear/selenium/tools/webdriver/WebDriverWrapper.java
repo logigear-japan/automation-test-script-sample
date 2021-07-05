@@ -1,11 +1,10 @@
 package com.logigear.selenium.tools.webdriver;
 
 import com.google.common.base.Preconditions;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -29,29 +28,11 @@ public class WebDriverWrapper {
         String os = System.getProperty("os.name").toLowerCase();
         switch (browser) {
             case "chrome":
-                if (os.startsWith("mac")) {
-                    System.setProperty("webdriver.chrome.driver",
-                            DRIVERS_DIR + File.separator + "mac" + File.separator + "chromedriver");
-                } else if (os.startsWith("win")) {
-                    System.setProperty("webdriver.chrome.driver",
-                            DRIVERS_DIR + File.separator + "win" + File.separator + "chromedriver.exe");
-                } else {
-                    System.setProperty("webdriver.chrome.driver",
-                            DRIVERS_DIR + File.separator + "linux" + File.separator + "chromedriver");
-                }
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
             case "firefox":
-                if (os.startsWith("mac")) {
-                    System.setProperty("webdriver.gecko.driver",
-                            DRIVERS_DIR + File.separator + "mac" + File.separator + "geckodriver");
-                } else if (os.startsWith("win")) {
-                    System.setProperty("webdriver.gecko.driver",
-                            DRIVERS_DIR + File.separator + "win" + File.separator + "geckodriver.exe");
-                } else {
-                    System.setProperty("webdriver.gecko.driver",
-                            DRIVERS_DIR + File.separator + "linux" + File.separator + "geckodriver");
-                }
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
             default:
