@@ -3,7 +3,6 @@ package com.logigear.selenium.web.gondolatest.test_scripts;
 import com.logigear.selenium.web.gondolatest.abstract_scripts.AbstractTest;
 import com.logigear.selenium.web.gondolatest.pages.CartPage;
 import com.logigear.selenium.web.gondolatest.pages.HomePage;
-import com.logigear.selenium.web.gondolatest.pages.HomePageImpl;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -19,7 +18,7 @@ public class E2EDemoTest extends AbstractTest {
     @Parameters({"price_range_percent", "item1", "item2", "email", "card_number", "exp_date", "cvc", "zip_code"})
     public void buyAndCheckoutCart(int range, String item1, String item2, String email, String card, String expDate, String cvc, String postal) {
         // Navigate to home page
-        HomePage homePage = new HomePageImpl(driver).get();
+        HomePage homePage = new HomePage(driver).get();
 
         // Select category
         homePage.selectCategory();
@@ -37,6 +36,10 @@ public class E2EDemoTest extends AbstractTest {
 
         // click checkout cart
         CartPage cartPage = homePage.checkout();
+
+        // Verify 2 items was add
+        assertTrue(cartPage.checkItemExists(item1));
+        assertTrue(cartPage.checkItemExists(item2));
 
         // Verify total price equal summary of item's price
         assertTrue(cartPage.checkTotalPriceCorrect());

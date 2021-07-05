@@ -9,10 +9,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class WebDriverWrapper {
+public class WebDriverService {
     private static WebDriver driver;
 
-    private WebDriverWrapper() {
+    private WebDriverService() {
     }
 
     // Driver executable files directory.
