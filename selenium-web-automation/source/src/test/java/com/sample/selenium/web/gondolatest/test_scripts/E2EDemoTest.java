@@ -1,8 +1,8 @@
-package com.logigear.selenium.web.gondolatest.test_scripts;
+package com.sample.selenium.web.gondolatest.test_scripts;
 
-import com.logigear.selenium.web.gondolatest.abstract_scripts.AbstractTest;
-import com.logigear.selenium.web.gondolatest.pages.CartPage;
-import com.logigear.selenium.web.gondolatest.pages.HomePage;
+import com.sample.selenium.web.gondolatest.abstract_scripts.AbstractTest;
+import com.sample.selenium.web.gondolatest.pages.CartPage;
+import com.sample.selenium.web.gondolatest.pages.HomePage;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 

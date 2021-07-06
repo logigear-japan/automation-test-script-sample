@@ -1,4 +1,4 @@
-package com.logigear.selenium.web.gondolatest.pages;
+package com.sample.selenium.web.gondolatest.pages;
 
 import com.google.common.base.Preconditions;
 import org.openqa.selenium.By;

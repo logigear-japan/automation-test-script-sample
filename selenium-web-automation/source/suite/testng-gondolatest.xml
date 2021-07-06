@@ -3,7 +3,7 @@
 <suite name="LogiGear Demo Shop E2E UI Selenium WebDriver Tests" verbose="10">
 
     <!--Browser to run tests: firefox / chrome (default)-->
-    <parameter name="browser" value="firefox"/>
+    <parameter name="browser" value="chrome"/>
     <!-- E2E Testsuite parameter-->
     <parameter name="price_range_percent" value="70"/>  <!-- Must be between 0 and 100 -->
     <parameter name="item1" value="Knit Sweater with Zips"/>
@@ -16,7 +16,7 @@
 
     <test name="E2E Demo workflow" verbose="10">
         <classes>
-            <class name="com.logigear.selenium.web.gondolatest.test_scripts.E2EDemoTest"/>
+            <class name="com.sample.selenium.web.gondolatest.test_scripts.E2EDemoTest"/>
         </classes>
     </test>
 

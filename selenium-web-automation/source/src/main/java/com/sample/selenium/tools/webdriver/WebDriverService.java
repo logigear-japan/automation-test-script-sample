@@ -1,4 +1,4 @@
-package com.logigear.selenium.tools.webdriver;
+package com.sample.selenium.tools.webdriver;
 
 import com.google.common.base.Preconditions;
 import io.github.bonigarcia.wdm.WebDriverManager;

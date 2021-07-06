@@ -1,6 +1,6 @@
-package com.logigear.selenium.web.gondolatest.abstract_scripts;
+package com.sample.selenium.web.gondolatest.abstract_scripts;
 
-import com.logigear.selenium.tools.webdriver.WebDriverService;
+import com.sample.selenium.tools.webdriver.WebDriverService;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
