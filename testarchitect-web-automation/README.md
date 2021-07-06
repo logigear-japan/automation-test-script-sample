@@ -53,4 +53,5 @@ A simple TestArchitect test scripts to test an ecommerce website at https://demo
   
   ![](./images/results.png)
 
-All steps are recorded in this video
+All steps are recorded in this following video:
+https://youtu.be/YoiA9WnJlAs

@@ -33,4 +33,5 @@ Edit value **\<parameter name="browser" value="firefox"/>** in selenium-web-auto
 ### 3.3 View results
    Test results was generated at /selenium-web-automation/source/target/surefire-reports/index.html
 
-All steps are recorded in this video
+All steps are recorded in this following video:
+https://youtu.be/E-ZQe3hvnQA
